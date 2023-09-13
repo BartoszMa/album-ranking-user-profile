@@ -38,7 +38,6 @@ public class ProfileController {
                 .build();
 
         final User user = getCurrentUsersProfileRequest.execute();
-        System.out.println("Display name: " + user.getDisplayName());
 
         if (!profileService.checkIfProfileExist(user.getId())) {
             profileService.createProfile(new Profile(user.getId(), user.getEmail(), user.getDisplayName(), Arrays.toString(user.getImages())));
